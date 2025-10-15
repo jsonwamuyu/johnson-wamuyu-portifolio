@@ -71,9 +71,9 @@ const ContactMe = () => {
           <div className="flex flex-col w-full">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Your Name"
               {...register("name")}
-              className="p-3 border border-gray-300 rounded"
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
             />
             {errors.name && (
               <p className="error-message">{errors.name.message}</p>
@@ -83,9 +83,9 @@ const ContactMe = () => {
           <div className="flex flex-col w-full text-left">
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email Address"
               {...register("email")}
-              className="p-3 border border-gray-300 rounded"
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
             />
             {errors.email && (
               <p className="error-message">{errors.email.message}</p>
@@ -94,9 +94,9 @@ const ContactMe = () => {
 
           <div className="w-full flex flex-col">
             <textarea
-              placeholder="Message"
+              placeholder="write a Message"
               {...register("message")}
-              className="p-3 border border-gray-300 rounded h-32"
+              className="p-3 border border-gray-300 rounded h-32 focus:outline-none focus:ring-indigo-400 focus:border-indigo-400 resize-none"
             ></textarea>
             {errors.message && (
               <p className="error-message">{errors.message.message}</p>

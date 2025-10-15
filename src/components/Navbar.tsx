@@ -1,7 +1,7 @@
 import  { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const navLinks = [
+export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
@@ -16,7 +16,7 @@ const Navbar = () => {
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
-      setMenuOpen(false); // Close menu on click (mobile)
+      setMenuOpen(false);
     }
   };
 
@@ -27,7 +27,7 @@ const Navbar = () => {
         <a
           href="#home"
           onClick={(e) => handleScroll(e, "#home")}
-          className="font-bold text-3xl text-indigo-500"
+          className="font-extrabold text-3xl text-indigo-500"
         >
           JW
         </a>

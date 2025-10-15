@@ -2,9 +2,18 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 
 const Hero = () => {
+  // Smooth scroll handler
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section
-    id="home"
+      id="home"
       className="relative w-full min-h-screen pt-24 md:pt-32
     flex items-center justify-center bg-gradient-to-b from-black via-black/70 to-[#1a1a1a] text-white overflow-hidden"
     >
@@ -58,10 +67,16 @@ const Hero = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-10 flex flex-wrap gap-4 md:gap-8 justify-center"
         >
-          <button className="px-8 py-3 bg-indigo-600 cursor-pointer font-medium rounded-full text-white hover:bg-indigo-700 hover:scale-105 transition-transform duration-150 ease-in-out">
+          <button
+            onClick={(e) => handleScroll(e, "#contact")}
+            className="px-8 py-3 bg-indigo-600 cursor-pointer font-medium rounded-full text-white hover:bg-indigo-700 hover:scale-105 transition-transform duration-150 ease-in-out"
+          >
             Hire Me
           </button>
-          <button className="px-8 py-3 border font-medium cursor-pointer border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-600 hover:text-white hover:scale-105 transition-transform duration-150 ease-in-out">
+          <button
+            onClick={(e) => handleScroll(e, "#projects")}
+            className="px-8 py-3 border font-medium cursor-pointer border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-600 hover:text-white hover:scale-105 transition-transform duration-150 ease-in-out"
+          >
             View Projects
           </button>
         </motion.div>
