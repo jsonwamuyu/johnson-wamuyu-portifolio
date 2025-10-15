@@ -18,11 +18,15 @@
 }
 
 p{
-  @apply text-gray-400;
+  @apply text-gray-400 leading-relaxed;
 }
 .error-message {
   @apply text-red-500 text-sm mt-2 text-left;
 }
 .container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center;
+  @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center;
+}
+
+.wrapper{
+  @apply w-full py-16 md:pt-32
 }

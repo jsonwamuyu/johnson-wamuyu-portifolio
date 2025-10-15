@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,6 +12,7 @@ const ContactMe = () => {
       .required("Message is required")
       .min(10, "Message must be at least 10 characters"),
   });
+
   const {
     register,
     handleSubmit,
@@ -25,22 +26,47 @@ const ContactMe = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="flex flex-col container items-center">
-        <h4 className="font-bold text-7xl">
+    <motion.div
+      id="contact"
+      className="wrapper"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      <div className="flex-col container items-center">
+        <motion.h4
+          className="font-bold text-5xl md:text-7xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          viewport={{ once: true }}
+        >
           Contact
           <span className="bg-gradient-to-r to-indigo-700 from-indigo-400 bg-clip-text text-transparent">
             {" "}
             Me
           </span>
-        </h4>
-        <p className="  pt-4">
+        </motion.h4>
+
+        <motion.p
+          className="pt-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           I would love to hear from you! Please fill out the form below to get
           in touch.
-        </p>
-        <form
+        </motion.p>
+
+        <motion.form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-8 pt-16 w-full md:max-w-3xl items-start"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          viewport={{ once: true }}
         >
           <div className="flex flex-col w-full">
             <input
@@ -65,6 +91,7 @@ const ContactMe = () => {
               <p className="error-message">{errors.email.message}</p>
             )}
           </div>
+
           <div className="w-full flex flex-col">
             <textarea
               placeholder="Message"
@@ -76,18 +103,19 @@ const ContactMe = () => {
             )}
           </div>
 
-          {/* <div className="max-sm:w-full bg-red-600 flex"> */}
           <div className="max-md:w-full">
-            <button
+            <motion.button
               type="submit"
-              className="w-full bg-indigo-600 text-white px-8 py-3 rounded-full  transition cursor-pointer duration-200 ease-in-out outline-none border-none hover:scale-105"
+              className="w-full bg-indigo-600 text-white px-8 py-3 rounded-full  transition cursor-pointer duration-200 ease-in-out outline-none font-medium border-none hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
             >
               Send Message
-            </button>
+            </motion.button>
           </div>
-        </form>
+        </motion.form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
