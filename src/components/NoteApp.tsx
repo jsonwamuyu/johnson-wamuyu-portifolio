@@ -35,7 +35,12 @@ const NoteApp = () => {
     resolver: yupResolver(NoteSchema),
   });
 
-  const onSubmit = (data: any) => {
+  interface NotesDataInterface {
+    title: string;
+    content: string;
+  }
+
+  const onSubmit = (data: NotesDataInterface) => {
     console.log(data);
   };
 
@@ -104,3 +109,26 @@ const NoteApp = () => {
 };
 
 export default NoteApp;
+
+function addNumbers(num: number, num2: number): number {
+  const results = num + num2;
+  return results;
+}
+
+addNumbers(2, 2);
+// addNumbers(2, "This is a string"); // An error -> Second parameter must be a number
+addNumbers(22, 22);
+
+function totalPrice(price: number, quantity: number, discount: number) {
+  const amount = price * quantity * (1 - discount);
+  return amount
+}
+
+totalPrice(100, 2, 2);
+
+function userSystemPrompts(system:string, user){
+  return `${system}/n${user}`
+}
+
+userSystemPrompts('ifconfig', 'system-out')
+userSystemPrompts("ifconfig", 23);
