@@ -21,8 +21,14 @@ const ContactMe = () => {
     resolver: yupResolver(contactSchema),
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  interface ContactMeDataInterface {
+    name: string;
+    email: string;
+    message: string;
+  }
+
+  const onSubmit = (data: ContactMeDataInterface) => {
+    console.log("Data from user: ", data);
   };
 
   return (
