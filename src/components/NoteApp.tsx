@@ -121,14 +121,93 @@ addNumbers(22, 22);
 
 function totalPrice(price: number, quantity: number, discount: number) {
   const amount = price * quantity * (1 - discount);
-  return amount
+  return amount;
 }
 
 totalPrice(100, 2, 2);
 
-function userSystemPrompts(system:string, user){
-  return `${system}/n${user}`
+function userSystemPrompts(system: string, user: string) {
+  return `${system}/n${user}`;
 }
 
-userSystemPrompts('ifconfig', 'system-out')
-userSystemPrompts("ifconfig", 23);
+userSystemPrompts("ifconfig", "system-out");
+userSystemPrompts("ifconfig", "23");
+
+// void is used with function that does not return anything
+// In Javascript when a function has no return type, it returns a undefined,
+//  but Typescript uses void to indicate that nothing is returned
+function returnVoid(): void {
+  console.log("This return void");
+  // return "Hello";
+}
+
+returnVoid();
+
+function isAuthenticated(role: string) {
+  if (role === "Admin") {
+    return "Admin";
+  } else if (role === "User") {
+    return "User";
+  }
+  return "Guest";
+}
+
+console.log(isAuthenticated("Guest"));
+console.log(isAuthenticated("Admin"));
+console.log(isAuthenticated("User"));
+
+// Union Type
+let userId: string | number;
+
+userId = 77;
+console.log(`first userid: ${userId}`);
+
+userId = "45kkhkAk34";
+console.log("Second userid", userId);
+
+function getTicket(id: string | number) {
+  return id;
+}
+
+console.log(getTicket(32222222));
+console.log(getTicket("Jk-4544545VJ"));
+
+// Type narrowing
+function squareNum(num: string | number) {
+  if (typeof num === "string") {
+    num = parseInt(num, 10);
+  }
+  return num * num;
+}
+
+console.log(squareNum(10));
+console.log(squareNum("10"));
+console.log(squareNum("Ten"));
+
+function getTicketInfo(ticketId: string | number) {
+  if (typeof ticketId === "string") {
+    ticketId = parseInt(ticketId, 10);
+  }
+  return `Processing ticket ${ticketId}`;
+}
+
+console.log(getTicketInfo("SUPPORT-232-232-56"));
+console.log(getTicketInfo(2323223));
+
+// Optional parameters - use ? after the parameter you want to be optional
+function greetPerson(name: string, title?: string) {
+  return `Hello ${title} ${name}`;
+}
+
+console.log(greetPerson("John"));
+console.log(greetPerson("John", "Doctor"));
+
+const welcomeUser = (name: string, email?: string) => {
+  if (email) {
+    return `Welcome ${name}, your email is ${email}`;
+  }
+  return `welcome ${name}`;
+};
+
+console.log(welcomeUser("Jane"));
+console.log(welcomeUser("Jane", "jane@gmail.com"));
