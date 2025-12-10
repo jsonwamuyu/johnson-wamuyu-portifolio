@@ -11,7 +11,7 @@ export const navLinks = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleScroll = (e, href) => {
+  const handleScroll = (e, href:string) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {

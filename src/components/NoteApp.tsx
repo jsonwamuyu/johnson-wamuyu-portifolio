@@ -196,7 +196,10 @@ console.log(getTicketInfo(2323223));
 
 // Optional parameters - use ? after the parameter you want to be optional
 function greetPerson(name: string, title?: string) {
-  return `Hello ${title} ${name}`;
+  if (title) {
+    return `Hello ${title} ${name}`;
+  }
+  return `Hello ${name}`;
 }
 
 console.log(greetPerson("John"));
@@ -211,3 +214,66 @@ const welcomeUser = (name: string, email?: string) => {
 
 console.log(welcomeUser("Jane"));
 console.log(welcomeUser("Jane", "jane@gmail.com"));
+
+const calculateApiCost = (numReqs: number, tier?: string) => {
+  if (tier === "pro") {
+    return 0.05 * numReqs;
+  } else if (tier === "enterprice") {
+    return 0.03 * numReqs;
+  }
+  return numReqs * 0.1;
+};
+
+console.log(calculateApiCost(20, "pro"));
+console.log(calculateApiCost(20, "enterprice"));
+
+// Default parameters
+// They provide a fallback value for optional arguments - When you use default parameters, theres no need to mark it with ? . the parmeter type will be infered automatically
+
+const newMovie = (
+  heading: string,
+  director: string,
+  actor: string,
+  ratings: number = 1
+) => {
+  return `${heading} Stering:${actor}, director: ${director}, ratings: ${ratings}`;
+};
+
+console.log(newMovie("Prison Break", "Michael Scottfield", "David Griffin"));
+console.log(newMovie("Prison Break", "Michael Scottfield", "David Griffin", 4));
+
+const estimateResponseTime = (promptLength = 100, modelType = "text") => {
+  // Calculate the response time based on modelType(Text, Image, Code)
+  if (modelType === "text") {
+    return 2 + 0.01 * promptLength;
+  }
+  if (modelType === "image") {
+    return 5 + 0.02 * promptLength;
+  }
+  if (modelType === "code") {
+    return 3 + 0.05 * promptLength;
+  }
+  return 0;
+};
+
+console.log(estimateResponseTime(10));
+
+// Type union
+type Priority = "low" | "medium" | "high" | "critical";
+const setPriority = (priority:Priority){
+  if(priority === 'low'){
+    return 0
+  }
+  if(priority === 'medium'){
+    return 1
+  }
+  if(priority === 'high'){
+    return 2
+  }
+  if(priority === 'critical'){
+    return 3
+  }
+}
+
+console.log(setPriority("medium"))
+console.log(setPriority("high"))
