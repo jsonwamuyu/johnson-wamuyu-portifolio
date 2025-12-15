@@ -41,7 +41,8 @@ const NoteApp = () => {
   }
 
   const onSubmit = (data: NotesDataInterface) => {
-    console.log(data);
+    console.log(data.content);
+    console.log(data.title);
   };
 
   return (
@@ -260,20 +261,22 @@ console.log(estimateResponseTime(10));
 
 // Type union
 type Priority = "low" | "medium" | "high" | "critical";
-const setPriority = (priority:Priority){
-  if(priority === 'low'){
-    return 0
-  }
-  if(priority === 'medium'){
-    return 1
-  }
-  if(priority === 'high'){
-    return 2
-  }
-  if(priority === 'critical'){
-    return 3
-  }
-}
 
-console.log(setPriority("medium"))
-console.log(setPriority("high"))
+const setPriority = (priority: Priority) => {
+  if (priority === "low") {
+    return 0;
+  }
+  if (priority === "medium") {
+    return 1;
+  }
+  if (priority === "high") {
+    return 2;
+  }
+  if (priority === "critical") {
+    return 3;
+  }
+  return "Unknown";
+};
+
+console.log(setPriority("medium"));
+console.log(setPriority("high"));
