@@ -57,6 +57,8 @@ myField: [String]! //This means that the list itself cannot be null, but it can 
 myField: [String!]! // You can also have a Non-Null List of Non-Null String types
 
 // DEFINIG THE QUERIES - GraphQL support 3 main operation types o read data from the server - Query, Mutation and Subscription
-type Query{} // Rem. when creating a GraphQL document, always start with the root operation type (Query) - this serves as the enntry point to the API.
+type Query{
+    person:Person
+} // Rem. when creating a GraphQL document, always start with the root operation type (Query) - this serves as the enntry point to the API.
 type Mutation{}
 type Subscription{}
