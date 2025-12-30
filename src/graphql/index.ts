@@ -1,7 +1,7 @@
-// DEFINING THE TYPE OBJECT
+import { gql } from "apollo-server-express"
 
-// Bank accounts, client 
-type Account{
+export const typeDefs = gql`
+type Account{   
     id: ID!
     accountType:string!
     client:Client!
@@ -10,7 +10,9 @@ type Account{
 type Client{
     id:ID!
     fullname:string
-}
+}  
+`
+    
 
 
 // scaller types - they do not have sub-fields.They include - Int, String, ID, Boolean, Float

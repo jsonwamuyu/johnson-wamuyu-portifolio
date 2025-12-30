@@ -1,34 +1,45 @@
-// Fragments - define reusable fields
-type Post {
-    id:ID!
-    title:String!
-    content:String!
-}
+// This is our entry point -> Lets create standalone server
 
-type Comment{
-id:ID!
-body:String!
-}
+import { ApolloServer } from "@apollo/server";
+import { typeDefs } from "./schema";
+import { startStandaloneServer } from "@apollo/server/standalone";
 
+const PORT = 8080;
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-query getPost($id:ID!){
-    post(id: $id):Post(){
-        ...postFields
-    }
-    post2:Post(){
-        ...postFields
-    }
-}
+const { url } = await startStandaloneServer(server, listen: {
+  port:PORT
+});
 
-fragment postFields on Post{
-    id
-    title
-    content
-    comments{
-        id
-        body
-    }
-}
+console.log(`Server running on: ${url}`)
 
+// import { gql } from "apollo-server-express";
 
-// Mutations 
+// export const typeDefs = gql`
+//   type Post {
+//     id: ID!
+//     title: String!
+//     content: String!
+//     comments: [Comment!]!
+//   }
+
+//   type Comment {
+//     id: ID!
+//     body: String!
+//     post: Post
+//   }
+
+//   type Query {
+//     post(id: ID!): Post
+//     post2: Post
+//     posts: [Post!]!
+//   }
+
+//   type Mutation {
+//     createPost(title: String!, content: String!): Post!
+//     createComment(postId: ID!, body: String!): Comment!
+//   }
+// `;
