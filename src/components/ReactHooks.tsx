@@ -1,7 +1,8 @@
-import { use, useState } from "react";
+import { useState } from "react";
 
 const ReactHooks = () => {
   const [counter, setCounter] = useState(0);
+  const [myColor, setMyColor] = useState("BLUE");
   const increaseCounter = () => {
     setCounter((prev) => prev + 1);
   };
@@ -10,6 +11,10 @@ const ReactHooks = () => {
   };
   const clearCounter = () => {
     setCounter(0);
+  };
+
+  const changeColor = () => {
+    setMyColor("RED");
   };
   return (
     <div className="wrapper">
@@ -27,12 +32,12 @@ const ReactHooks = () => {
             variable to manage state in a component by tracking the changes in
             this variable. When the state changes, we update the user interface.
           </p>
-          <p>
-            Counter{" "}
-            <span className="font-bold text-3xl text-indigo-500">
-              {counter}
-            </span>
-          </p>
+          <div className="flex justify-centerflex-row gap-4">
+            <p>Counter</p>
+            <div className=" w-10 h-10 rounded-full bg-white font-bold text-3xl text-indigo-500 flex flex-row items-center justify-center">
+              <h4>{counter}</h4>
+            </div>
+          </div>
           <div className="space-x-8">
             <button
               onClick={increaseCounter}
@@ -43,7 +48,7 @@ const ReactHooks = () => {
             <button
               onClick={decreaseCounter}
               className="font-semibold bg-transparent px-4 py-2 border-[2px]
-             border-indigo-500 rounded-full cursor-pointer outline-none"
+             border-indigo-500 rounded-full cursor-pointer outline-none text-indigo-500"
             >
               Decrease -
             </button>
@@ -52,6 +57,15 @@ const ReactHooks = () => {
               onClick={clearCounter}
             >
               Clear counter
+            </button>
+          </div>
+          <div className="mt-10">
+            <p>My favourite color is: {myColor}</p>
+            <button
+              onClick={changeColor}
+              className="px-4 py-2 bg-black/50 text-white/50 rounded-full"
+            >
+              Change Color
             </button>
           </div>
         </div>
