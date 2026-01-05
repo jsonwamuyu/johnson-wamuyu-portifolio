@@ -24,4 +24,30 @@ let reviews = [
     game_id: "2",
   },
 ];
-export { games, authors, reviews };
+
+let projects = [
+  {
+    id: 1,
+    title: "Popo landing page",
+    source_code: "github.com/popo",
+    live_link: "popo.com",
+  },
+  {
+    id: 2,
+    title: "Young Money",
+    source_code: "github.com/youngmoney",
+    live_link: "youngmoney.com",
+  },
+  {
+    id: 3,
+    title: "TikTok Clone",
+    source_code: "github.com/tiktok-clone",
+    live_link: "tiktok-clone.com",
+  },
+];
+
+let owners = [
+  { id: "1", fullname: "John Doe" },
+  { id: "2", fullname: "Jane doe" },
+];
+export { games, authors, reviews, projects, owners };

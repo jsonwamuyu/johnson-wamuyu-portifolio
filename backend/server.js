@@ -12,6 +12,6 @@ const server = new ApolloServer({
     typeDefs,
 });
 
-const { url } = await startStandaloneServer(server, listen:{port:4000});
+const { url } = await startStandaloneServer(server, {listen:{port:4000}});
 
 console.log("Server started at ", url);

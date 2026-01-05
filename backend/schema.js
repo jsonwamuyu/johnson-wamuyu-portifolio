@@ -1,41 +1,24 @@
-// install extension -> graphql: language features
-// >npm i nodemon
-//
-
-import { gql } from "apollo-server-express";
-
-export const typeDefs = gql`
-  type Game {
+export const typeDefs = `#graphql
+  type Project {
     id: ID!
     title: String!
-    platform: [String!]!
+    source_code: String!
+    live_link: String!
   }
-  type Review {
-    id: ID!
-    rating: Int!
-    content: String!
-  }
-  type Author {
+  type ProjectOwner {
     id: ID!
     fullname: String!
-    verified: Boolean!
+    projects: [String!]!
   }
 
   type Query {
-    game(id: ID!): Game!
-    games: [Game!]!
-    authors: [Author!]!
-    author(id: ID!): Author!
-    reviews: Review!
-    review(id: ID!): [Review!]!
+    projects: [Project]
+    owners: [ProjectOwner]
+    project(id: ID!): Project
+    owner(id: ID!): ProjectOwner
   }
-
   type Mutation {
-    addGame(title:String!, platform:[String!]!): Game!
-    addAuthor(fullname:String!)
+    addProject(title: String!, source_code: String!, live_link: String!): Project
+    addOwner(fullname: String!): ProjectOwner
   }
 `;
-
-export const resolvers {
-    Query{}
-}
