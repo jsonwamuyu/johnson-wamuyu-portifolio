@@ -12,8 +12,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black/60 border-t border-white/10 backdrop-blur-md text-gray-400">
-      <div className="container mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="w-full bg-black/50 text-gray-500">
+      <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Navigation Links */}
         <ul className="flex flex-wrap justify-center md:justify-start gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -21,7 +21,7 @@ const Footer = () => {
               <a
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="hover:text-indigo-400 transition-colors duration-150 cursor-pointer"
+                className="hover:text-indigo-100  transition-colors duration-150 cursor-pointer"
               >
                 {link.name}
               </a>
@@ -30,10 +30,10 @@ const Footer = () => {
         </ul>
 
         {/* Copyright */}
-        <p className="text-xs text-gray-500 text-center md:text-right">
+        <p className="text-xs  text-center md:text-right">
           &copy; {new Date().getFullYear()}{" "}
-          <span className="text-indigo-400 font-semibold">Johnson Wamuyu</span>.
-          All rights reserved.
+          <span className="text-indigo-100 ">Johnson Muchiri</span>. All rights
+          reserved.
         </p>
       </div>
     </footer>

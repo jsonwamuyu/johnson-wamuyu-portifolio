@@ -4,11 +4,12 @@ export const typeDefs = `#graphql
     title: String!
     source_code: String!
     live_link: String!
+    owner:ProjectOwner!
   }
   type ProjectOwner {
     id: ID!
     fullname: String!
-    projects: [String!]!
+    projects:[Project!]
   }
 
   type Query {

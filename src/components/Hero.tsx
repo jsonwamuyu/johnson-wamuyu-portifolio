@@ -34,7 +34,7 @@ const Hero = () => {
           className="text-6xl md:text-8xl font-extrabold leading-tight"
         >
           Hi, I’m{" "}
-          <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-400 to-indigo-500 bg-clip-text text-transparent">
             Johnson
           </span>
         </motion.h2>
@@ -52,7 +52,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-6 max-w-2xl text-gray-300 text-base md:text-lg leading-relaxed"
+          className="mt-6 max-w-2xl text-indigo-100 text-base md:text-lg leading-relaxed"
         >
           I craft elegant, high-performing web applications that bring ideas to
           life. Passionate about clean code, stunning design, and seamless user
@@ -69,13 +69,13 @@ const Hero = () => {
         >
           <button
             onClick={(e) => handleScroll(e, "#contact")}
-            className="px-8 py-3 bg-indigo-600 cursor-pointer font-medium rounded-full text-white hover:bg-indigo-700 hover:scale-105 transition-transform duration-150 ease-in-out"
+            className="px-8 py-3 bg-indigo-500 cursor-pointer font-medium rounded-full text-indigo-100 hover:bg-indigo-700 transition-all duration-300 ease-in-out"
           >
             Hire Me
           </button>
           <button
             onClick={(e) => handleScroll(e, "#projects")}
-            className="px-8 py-3 border font-medium cursor-pointer border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-600 hover:text-white hover:scale-105 transition-transform duration-150 ease-in-out"
+            className="px-8 py-3 border font-medium cursor-pointer border-indigo-500 text-indigo-500 rounded-full hover:bg-indigo-500 hover:text-indigo-100 transition-all duration-300 ease-in-out"
           >
             View Projects
           </button>

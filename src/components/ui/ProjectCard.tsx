@@ -1,17 +1,27 @@
 import { FaGithub, FaRocket } from "react-icons/fa";
 
-export const ProjectCard = ({ project }) => {
+interface ProjectDataType {
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+
+export const ProjectCard = ({
+  imageUrl,
+  title,
+  description,
+}: ProjectDataType) => {
   return (
     <div className="bg-gray-800 rounded overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ease-in-out ">
       <img
-        src={project.imageUrl}
+        src={imageUrl}
         // src="../../public/images/vreality.png"
-        alt="Project 1"
+        alt={title}
         className="w-full h-48 object-cover"
       />
       <div className="p-6">
-        <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
+        <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+        <p className="text-gray-300 mb-4">{description}</p>
         <div className="flex flex-row gap-4">
           <a
             href="#"

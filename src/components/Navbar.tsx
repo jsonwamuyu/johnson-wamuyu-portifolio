@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
 export const navLinks = [
@@ -11,7 +11,7 @@ export const navLinks = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleScroll = (e, href:string) => {
+  const handleScroll = (e, href: string) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {

@@ -26,6 +26,17 @@ const resolvers = {
       return owners.find((owner) => owner.id === args.id);
     },
   },
+  ProjectOwner: {
+    projects(parent) {
+      return projects.filter((pro) => pro.owner_id === parent.id);
+    },
+  },
+  Project: {
+    owner(parent) {
+      // return owners
+      // return owners.filter((owner) => owner.id === parent.id);
+    },
+  },
 };
 const PORT = 8080;
 const server = new ApolloServer({
@@ -41,30 +52,27 @@ const { url } = await startStandaloneServer(server, {
 
 console.log(`Server running on: ${url}`);
 
-// import { gql } from "apollo-server-express";
-
-// export const typeDefs = gql`
-//   type Post {
-//     id: ID!
-//     title: String!
-//     content: String!
-//     comments: [Comment!]!
+// {
+//   query getAGame($gameId:ID!){
+//     games(id:$gameId){
+//       id
+//       title
+//       reviews{
+//         id
+//         ratings
+//       }
+//     }
 //   }
+// }
 
-//   type Comment {
-//     id: ID!
-//     body: String!
-//     post: Post
+// {
+//   query getOwner($ownId:ID!){
+//     owner(id:$ownerId){
+//       fullnames
+//       projects{
+//         id
+//         title
+//       }
+//     }
 //   }
-
-//   type Query {
-//     post(id: ID!): Post
-//     post2: Post
-//     posts: [Post!]!
-//   }
-
-//   type Mutation {
-//     createPost(title: String!, content: String!): Post!
-//     createComment(postId: ID!, body: String!): Comment!
-//   }
-// `;
+// }

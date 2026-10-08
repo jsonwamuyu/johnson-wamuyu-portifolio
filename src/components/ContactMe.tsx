@@ -79,7 +79,7 @@ const ContactMe = () => {
               type="text"
               placeholder="Your Name"
               {...register("name")}
-              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
+              className="p-3 border border-indigo-100 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
             />
             {errors.name && (
               <p className="error-message">{errors.name.message}</p>
@@ -91,7 +91,7 @@ const ContactMe = () => {
               type="email"
               placeholder="Email Address"
               {...register("email")}
-              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
+              className="p-3 border border-indigo-100 rounded focus:outline-none focus:ring-indigo-400 focus:border-indigo-400"
             />
             {errors.email && (
               <p className="error-message">{errors.email.message}</p>
@@ -102,7 +102,7 @@ const ContactMe = () => {
             <textarea
               placeholder="write a Message"
               {...register("message")}
-              className="p-3 border border-gray-300 rounded h-32 focus:outline-none focus:ring-indigo-400 focus:border-indigo-400 resize-none"
+              className="p-3 border border-indigo-100 rounded h-32 focus:outline-none focus:ring-indigo-400 focus:border-indigo-400 resize-none"
             ></textarea>
             {errors.message && (
               <p className="error-message">{errors.message.message}</p>
@@ -112,7 +112,7 @@ const ContactMe = () => {
           <div className="max-md:w-full">
             <motion.button
               type="submit"
-              className="w-full bg-indigo-600 text-white px-8 py-3 rounded-full  transition cursor-pointer duration-200 ease-in-out outline-none font-medium border-none hover:scale-105"
+              className="w-full bg-indigo-500 text-indigo-100 px-8 py-3 rounded-full  transition cursor-pointer duration-200 ease-in-out outline-none font-medium border-none hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >

@@ -3,27 +3,27 @@ import { ProjectCard } from "./ui/ProjectCard";
 const projectData = [
   {
     id: 1,
-    title: "Project One",
+    title: "TimeTracker",
     description:
       "A web application that allows users to track their tasks and manage their time effectively.",
-    imageUrl: "../../public/images/vreality.png",
+    imageUrl: "/images/vreality.png",
     projectUrl: "#",
   },
   {
     id: 2,
-    title: "Project Two",
+    title: "But It Today",
 
     description:
       "An e-commerce platform that provides a seamless shopping experience with secure payment integration.",
-    imageUrl: "https://via.placeholder.com/600x400",
+    imageUrl: "/images/motivation.png",
     projectUrl: "#",
   },
   {
     id: 3,
-    title: "Project Three",
+    title: "Data Science Automation",
     description:
       "A social networking site that connects people with similar interests and hobbies.",
-    imageUrl: "https://via.placeholder.com/600x400",
+    imageUrl: "/images/data-science.png",
     projectUrl: "#",
   },
 ];
@@ -40,7 +40,7 @@ const Projects = () => {
         <p className="pt-4 text-center">Here are some of my recent works.</p>
         <div className="pt-16 grid gap-8 md:grid-cols-2">
           {projectData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </div>
